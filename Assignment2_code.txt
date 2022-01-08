@@ -1,0 +1,77 @@
+/*Create a Table called "test_data" */
+create table test_data(
+ID integer Not null,
+Class varchar(25),
+age integer,
+menopause varchar (25),
+tumor_size integer,
+node_caps varchar(3),
+deg_malig integer,
+/*Create a Table called "test_data" */
+create table test_data(
+ID integer Not null,
+Class varchar(25),
+age integer,
+menopause varchar (25),
+tumor_size integer,
+node_caps varchar(3),
+deg_malig integer,
+breast varchar (20),
+breast_quad varchar(25),
+irradiat varchar(15),
+Primary key (ID));
+
+/*Load the following data into the table*/
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (1, 'NO', 35, 'premeno', 31, 'no', 3, 'left', 'left_low', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (2, 'NO', 42, 'premeno', 22, 'no', 2, 'right', 'right_up', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (3, 'NO', 30, 'premeno', 23, 'no', 2, 'left', 'left_low', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (4, 'NO', 61, 'ge40', 16, 'no', 2, 'right', 'left_up', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (5, 'NO', 45, 'premeno', 2, 'no', 2, 'right', 'right_low', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (6, 'NO', 64, 'ge40', 17, 'no', 2, 'left', 'left_low', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (7, 'NO', 52, 'premeno', 27, 'no', 2, 'left', 'left_low', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (8, 'NO', 67, 'ge40', 21, 'no', 1, 'left', 'left_low', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (9, 'YES', 41, 'premeno', 52, 'no', 2, 'left', 'left_low', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (10, 'YES', 43, 'premeno', 22, 'no', 2, 'right', 'left_up', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (11, 'YES', 41, 'premeno', 1, 'no', 3, 'left', 'central', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (12, 'YES', 44, 'ge40', 27, 'no', 2, 'left', 'left_low', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (13, 'YES', 61, 'It40', 14, 'no', 1, 'left', 'right_up', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (14, 'YES', 55, 'ge40', 26, 'no', 3, 'left', 'right_up', 'no');
+insert into test_data(ID, Class, age, menopause, tumor_size, node_caps, deg_malig, breast, breast_quad, irradiat)
+Values (15, 'YES', 44, 'premeno', 32, 'no', 3, 'left', 'left_up', 'no');
+
+/*Visualize the table*/
+select * from test_data;
+
+/* a. Select all rows where menopause column has the value "ge40" */
+select * from test_data
+where menopause = "ge40";
+
+/* b. Select all rows where age is less than 41*/
+select * from test_data
+where age < 41;
+
+/* c. select all rows where age is less than 41 and menopause column has the value "ge40"*/
+select * from test_data
+where age < 41 AND menopause = "ge40";
+
+/* d. Compute the average across all rows */
+select AVG(age) from test_data;
+
+
+/* e. Compute the average age across rows where deg_malig value is equal to 3 */
+select deg_malig, AVG(age) from test_data
+where deg_malig = 3 group by deg_malig;
